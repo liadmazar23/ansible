@@ -1,0 +1,12 @@
+---
+- name: configure ngnix server
+  hosts: webserver
+  tasks: 
+  - name: install ngnix server
+    apt: 
+     name: ngnix
+     state: latest # version
+- name: start ngnix service
+  service:
+    name: ngnix
+    state: start

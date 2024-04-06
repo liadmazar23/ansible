@@ -1,0 +1,8 @@
+---
+- name: Example play
+  hosts: your_target_hosts
+  tasks:
+    - name: Add remote repository
+      command: git remote add "{{ master }}" "https://github.com/liadmazar23/ansible.git"
+      args:
+        chdir: "/home/ubuntu/git_repo"

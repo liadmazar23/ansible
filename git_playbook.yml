@@ -1,0 +1,12 @@
+---
+- name: Install Git on Ubuntu/Debian servers
+  hosts: webservers
+  become: yes  # for root privileges
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Install Git
+      apt:
+        name: git
+        state: latest
