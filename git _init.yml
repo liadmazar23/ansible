@@ -1,17 +1,14 @@
----
 - name: Initialize Git repository on Ubuntu/Debian servers
   hosts: all
-  become: yes  # for root privileges
   vars:
-    repo_path: "/home/ubuntu/git_repo"  # Define variable for reuse
-
+    repo_path: /home/ubuntu/git_repo
   tasks:
     - name: Create the directory for the repository if it doesn't exist
       file:
-        path: "{{ /home/ubuntu/git_repo }}"  # Use the variable
+        path: '{{ /home/ubuntu/git_repo }}'
         state: directory
-
     - name: Initialize Git repository
-      command: git init "{{ /home/ubuntu/git_repo }}"  # Use the variable
+      command: git init "{{ /home/ubuntu/git_repo }}"
       args:
-        creates: "{{ /home/ubuntu/git_repo }}/.git"
+        creates: '{{ /home/ubuntu/git_repo }}/.git'
+        
